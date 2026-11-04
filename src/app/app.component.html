@@ -1,0 +1,20 @@
+<app-header></app-header>
+<main>
+    <ul id="users">
+      @for (user of users; track user.id) {
+      <li>
+        <app-user [id]="user.id" 
+                  [avatar]="user.avatar"
+                  [name]="user.name"
+                  (event)="selectedUser($event)">
+        </app-user>
+      </li>
+        }
+    </ul>
+    @if (user_name()) {
+        <app-tasks [userName]="user_name()"></app-tasks>    
+    }
+    @else {
+        <p>No user selected</p>
+    }
+</main>
