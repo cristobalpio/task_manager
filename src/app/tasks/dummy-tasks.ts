@@ -1,7 +1,17 @@
-export const dummyTasks = [
+import type { Task } from './task/task.component';
+
+export const dummyTasks: Task[] = [
   {
     id: 't1',
     userId: 'u1',
+    title: 'Master Angular',
+    summary:
+      'Learn all the basic and advanced features of Angular & how to apply them.',
+    dueDate: '2025-12-31',
+  },
+    {
+    id: 't1',
+    userId: 'u2',
     title: 'Master Angular',
     summary:
       'Learn all the basic and advanced features of Angular & how to apply them.',
@@ -22,4 +32,4 @@ export const dummyTasks = [
       'Prepare and describe an issue template which will help with project management',
     dueDate: '2024-06-15',
   },
-]
+];

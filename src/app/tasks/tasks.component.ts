@@ -1,6 +1,7 @@
-import { Component, input } from "@angular/core";
+import { Component, computed, input } from "@angular/core";
 import { TaskComponent } from "./task/task.component";
 import { dummyTasks } from "./dummy-tasks";
+import type { User } from "../user/user.component";
 
 @Component({
   selector: 'app-tasks',
@@ -10,7 +11,9 @@ import { dummyTasks } from "./dummy-tasks";
   styleUrls: ['./tasks.component.css']
 })
 export class TasksComponent {
-    userName = input<string>();
-    tasks = dummyTasks;
-
+    user = input.required<User>();
+    
+    filteredTasks = computed(
+        () => dummyTasks.filter(
+            task => task.userId === this.user().id));
 }

@@ -1,6 +1,6 @@
 import { Component, computed, input, signal } from '@angular/core';
 import { HeaderComponent } from './header/header.component';
-import { UserComponent } from './user/user.component';
+import { User, UserComponent } from './user/user.component';
 import { TasksComponent } from './tasks/tasks.component';
 import { DUMMY_USERS } from './dummy-users';
 
@@ -13,11 +13,13 @@ import { DUMMY_USERS } from './dummy-users';
 })
 export class AppComponent {
     users = DUMMY_USERS;
-    user_name = signal<string>("");
+    user = signal<User>({
+        id: '',
+        name: '',
+        avatar: ''
+    });
 
-    selectedUser(userId: string){
-        console.log(userId);
-        const user = this.users.find(user => user.id === userId)!;
-        this.user_name.set(user.name);
+    selectedUser(user: User){
+        this.user.set(user);
     };
 }

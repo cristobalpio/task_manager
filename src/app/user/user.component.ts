@@ -1,6 +1,12 @@
 import { Component, computed, input, output, signal } from '@angular/core';
 import { DUMMY_USERS } from '../dummy-users';
 
+export interface User {
+    id: string;
+    name: string;
+    avatar: string;
+}
+
 @Component({
   selector: 'app-user',
   standalone: true,
@@ -9,15 +15,13 @@ import { DUMMY_USERS } from '../dummy-users';
   styleUrl: './user.component.css'
 })
 export class UserComponent {
-    id = input.required<string>();
-    name = input.required<string>();
-    avatar = input.required<string>();
+    user = input.required<User>();
 
-    event = output<string>();
+    event = output<User>();
 
-    imagePath = computed(() => 'assets/users/' + this.avatar());
+    imagePath = computed(() => 'assets/users/' + this.user().avatar);
 
     userClick() {
-        this.event.emit(this.id());
+        this.event.emit(this.user());
     }
 }
