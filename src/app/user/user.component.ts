@@ -16,7 +16,7 @@ export interface User {
 })
 export class UserComponent {
     user = input.required<User>();
-
+    selected = input.required<boolean>();
     event = output<User>();
 
     imagePath = computed(() => 'assets/users/' + this.user().avatar);

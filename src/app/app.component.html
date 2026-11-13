@@ -1,9 +1,10 @@
 <app-header></app-header>
 <main>
     <ul id="users">
-      @for (user of users; track user.id) {
+      @for (userg of users; track userg.id) {
       <li>
-        <app-user [user]="user"
+        <app-user [user]="userg",
+                  [selected]="userg.id === user().id"
                   (event)="selectedUser($event)">
         </app-user>
       </li>

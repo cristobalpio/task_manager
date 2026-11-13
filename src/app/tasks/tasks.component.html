@@ -8,6 +8,6 @@
         </menu>
     </header>
     @for (task of filteredTasks(); track task.id) {
-        <app-task [task]="task"> </app-task>
+        <app-task [task]="task" (task_completed)="taskCompleted($event)"> </app-task>
     }
 </section>
