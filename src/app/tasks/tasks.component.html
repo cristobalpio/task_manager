@@ -1,10 +1,13 @@
+@if (isAddingTask) {
+    <new-task (cancel)="isAddingTask = false"> </new-task>
+}
 <section id="tasks">
     <header>
         <h2>
             {{ user().name }}'s Tasks'
         </h2>
         <menu>
-            <button>Add Task</button>
+            <button (click)="addTask()">Add Task </button>
         </menu>
     </header>
     @for (task of filteredTasks(); track task.id) {
